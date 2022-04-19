@@ -1,0 +1,16 @@
+.main-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 10vh;
+}
+
+.main-bar ul {
+  display: flex;
+}
+
+.main-bar li {
+  list-style-type: none;
+  margin-right: 60px;
+  font-size: 22px;
+}
