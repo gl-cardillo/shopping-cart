@@ -1,18 +1,25 @@
-import './Card.css'
+import "./Card.css";
+import React, { useState } from "react";
+import { Quantity } from "../Quantity/Quantity";
 
-export function Card({product}) {
+import { Link } from "react-router-dom";
 
-  const {category, id, name, img, price } = product;
+export function Card({ product, addToCart }) {
+  const { id, category, name, img, price } = product;
+  const [quantity, setQuantity] = useState(1);
 
   return (
-    <div key={id} className="card">
+    <div className="card">
       <img src={img} alt={name} />
-      <h3>{name}</h3>
+      <Link to={`${id}`} style={{ textDecoration: "none" }}>
+        <h3>{name}</h3>
+      </Link>
       <p>£ {price}</p>
-      <form>
-        <input type="number" id="quantity" name="quantity" min="1" max="5" defaultValue={1} />
-        <button type="submit">Add to cart</button>
-      </form>
+      <Quantity quantity={quantity} setQuantity={setQuantity} />
+      <button
+        onClick={() => addToCart(id, category, name, img, price, quantity)}>
+        Add to cart
+      </button>
     </div>
-  )
+  );
 }

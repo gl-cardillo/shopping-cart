@@ -1,0 +1,13 @@
+.quantity-selector {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 40px;
+  gap: 15px;
+  padding: 0 15px;
+  width: 45px;
+  margin: auto;
+}
+
+.quantity-selector p {
+  font-size: 15px;
+}

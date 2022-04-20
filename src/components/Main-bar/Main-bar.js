@@ -1,12 +1,19 @@
+import "./Main-bar.css";
 import { BsBag, BsSearch } from "react-icons/bs";
-import './Main-bar.css'
-export function Mainbar() {
+import { Link } from "react-router-dom";
 
-  return(      
+export function Mainbar({ quantity }) {
+  return (
     <div className="main-bar">
-      <ul>
-        <li><BsSearch className="icon" /></li>
-        <li><BsBag /></li>
-      </ul>
-    </div>)
+      <div>
+        <BsSearch style={{ color: "white", fontSize: "26px" }} />
+      </div>
+      <div>
+        <Link to="/cart">
+          <span className="cart-number">{quantity !== 0 ? quantity : ""}</span>
+          <BsBag style={{ color: "white", fontSize: "28px" }} />
+        </Link>
+      </div>
+    </div>
+  );
 }

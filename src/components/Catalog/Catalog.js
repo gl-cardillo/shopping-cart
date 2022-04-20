@@ -1,41 +1,52 @@
-import React, {useState} from 'react';
-import './Catalog.css'
+import "./Catalog.css";
+import React, { useState } from "react";
 import { Mainbar } from "../Main-bar/Main-bar";
-import { Link } from "react-router-dom";
-import { Card} from "../Card/Card"
-import { accessories } from '../../data/accessories';
-import { consoles } from '../../data/console';
-import { games } from '../../data/game';
+import { Card } from "../Card/Card";
+import { products } from "../../data/data";
 
-export function Catalog() {
+export function Catalog({ addToCart, quantity }) {
+  const [category, setCategory] = useState(
+    products.filter((product) => product.category === "Console")
+  );
+  const [selected, setSelected] = useState(0);
 
-  const [products, setProducts] = useState(consoles);
-
-  const changePage = (newPage) => {
-    setProducts(newPage);
-  }
+  const changeCategory = (n, newPage) => {
+    setSelected(n);
+    setCategory(products.filter((product) => product.category === newPage));
+  };
 
   return (
-    <div className="catalog">
-      < Mainbar />
-      <div className='catalog-main-content'>
+    <div className="page">
+      <Mainbar quantity={quantity} />
+      <div className="catalog-page">
         <div className="sidebar">
           <ul>
-            <li onClick={() => changePage(consoles)}>Console</li>
-            <li onClick={() =>changePage(accessories)}>Accessories</li>
-            <li onClick={() =>changePage(games)}>Games</li>
+            <li
+              className={selected === 0 ? "selected" : ""}
+              onClick={() => changeCategory(0, "Console")}
+            >
+              Consoles
+            </li>
+            <li
+              className={selected === 1 ? "selected" : ""}
+              onClick={() => changeCategory(1, "Accessorie")}
+            >
+              Accessories
+            </li>
+            <li
+              className={selected === 2 ? "selected" : ""}
+              onClick={() => changeCategory(2, "Game")}
+            >
+              Games
+            </li>
           </ul>
         </div>
         <div className="catalog-content">
-          {
-            products.map((product) => 
-         
-              <Card key={product.id} product={product} />
-
-            )
-            }
+          {category.map((product) => (
+            <Card key={product.id} product={product} addToCart={addToCart} />
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

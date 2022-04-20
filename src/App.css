@@ -1,8 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  color : rgb(226, 221, 221);
 }
 
 li {
   list-style-type: none;
+}
+
+.page {
+  background-image: linear-gradient(135deg, rgb(100 101 106), rgb(9 9 12));
+  min-height: 100vh;
 }

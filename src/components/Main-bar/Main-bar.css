@@ -5,12 +5,20 @@
   height: 10vh;
 }
 
-.main-bar ul {
+.main-bar  {
   display: flex;
 }
 
-.main-bar li {
+.main-bar div {
   list-style-type: none;
-  margin-right: 60px;
-  font-size: 22px;
+  margin-right: 100px;
+}
+
+.cart-number {
+  position: absolute;
+  margin-top: 9px;
+  font-size: 14px;
+  width: 28px ;
+  text-align: center;
+  font-weight: 600;
 }

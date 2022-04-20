@@ -14,15 +14,14 @@
   width: 28vw;
   font-family: 'Montserrat', sans-serif;
   margin-left: 50px;
-
 }
 
 .message-button p {
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 15px;
-
 }
+
 h1 {
   font-size: 55px;
   font-weight: 700;
@@ -30,7 +29,6 @@ h1 {
 }
 
 .message-button button {
-
   width: 135px;
   height: 40px;
   font-size: 22px;

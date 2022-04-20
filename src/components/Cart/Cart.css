@@ -1,0 +1,48 @@
+.cart-page h3 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cart-page-content {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.go-back-section {
+  grid-column: 1 / 1;
+}
+
+.cart-items {
+  grid-column: 2 / 2;
+}
+
+.cart-item {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.cart-item img {
+  width: 300px;
+  height: 300px;
+}
+
+.cart-info {
+  margin: 20px;
+}
+
+.cart-info h4 {
+  font-size: 35px;
+  margin: 10px;
+}
+.cart-info h5 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.cart-info p {
+  font-size: 22px;
+}
+
+.cart-info input {
+  width: 30px;
+}
