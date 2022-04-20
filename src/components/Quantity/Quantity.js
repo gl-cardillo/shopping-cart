@@ -8,9 +8,9 @@ export function Quantity({ quantity, setQuantity }) {
 
   return (
     <div className="quantity-selector">
-      <p onClick={() => handleQuantity(-1)}>-</p>
+      <p className="plus-minus" onClick={() => handleQuantity(-1)}>-</p>
       <p>{quantity}</p>
-      <p onClick={() => handleQuantity(1)}>+</p>
+      <p className="plus-minus"  onClick={() => handleQuantity(1)}>+</p>
     </div>
   );
 }

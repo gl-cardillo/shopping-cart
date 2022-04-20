@@ -19,7 +19,6 @@
 
 .cart-item {
   margin-bottom: 20px;
-  display: flex;
 }
 
 .cart-item img {
@@ -43,6 +42,38 @@
   font-size: 22px;
 }
 
-.cart-info input {
-  width: 30px;
+.empty-basket p {
+  margin-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.quantity-selector-cart {
+  display: inline-flex;
+  border: 1px solid white;
+  border-radius: 40px;
+  gap: 15px;
+  padding: 0 15px;
+  width: 55px;
+}
+
+.complete-transaction {
+  grid-column: 2/2;
+  display: flex;
+  gap: 30px
+}
+
+.complete-transaction button {
+    color: black;
+}
+
+.plus-minus {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+  .cart-item {
+
+    display: flex;
+  }
 }

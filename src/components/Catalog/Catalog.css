@@ -1,7 +1,7 @@
 .catalog-page {
-  display: grid;
-  grid-template-columns: 1fr 4fr;  
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar ul {
@@ -21,7 +21,15 @@
   padding-left: 5px;
 }
 
-.catalog-content {
-  display: flex;
-  flex-wrap: wrap;
+
+@media only screen and (min-width: 600px) {
+  .catalog-page {
+    display: grid;
+    grid-template-columns: 1fr 4fr;  
+  }
+
+  .catalog-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

@@ -4,12 +4,14 @@ import { Mainbar } from "../Main-bar/Main-bar";
 import { Card } from "../Card/Card";
 import { products } from "../../data/data";
 
-export function Catalog({ addToCart, quantity }) {
+export function Catalog({ addToCart, totalQuantity }) {
   const [category, setCategory] = useState(
     products.filter((product) => product.category === "Console")
   );
+  // add left border to show in wich category is active
   const [selected, setSelected] = useState(0);
 
+  //change category of product to display
   const changeCategory = (n, newPage) => {
     setSelected(n);
     setCategory(products.filter((product) => product.category === newPage));
@@ -17,7 +19,7 @@ export function Catalog({ addToCart, quantity }) {
 
   return (
     <div className="page">
-      <Mainbar quantity={quantity} />
+      <Mainbar totalQuantity={totalQuantity} />
       <div className="catalog-page">
         <div className="sidebar">
           <ul>

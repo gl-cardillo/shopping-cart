@@ -9,9 +9,8 @@
   display: flex;
 }
 
-.main-bar div {
-  list-style-type: none;
-  margin-right: 100px;
+.search-icon-container, .cart-icon-container {
+  margin-right: 50px;
 }
 
 .cart-number {
@@ -21,4 +20,33 @@
   width: 28px ;
   text-align: center;
   font-weight: 600;
+}
+
+#search {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid white;
+  margin-right: 10px;
+  padding: 5px;
+ 
+}
+
+#search:focus {
+  outline: none;
+}
+
+
+.search-icon-container {
+  display: flex;
+}
+
+.cart-icon-container {
+
+}
+
+@media only screen and (min-width: 420px) {
+  .search-icon-container, .cart-icon-container {
+    margin-right: 100px;
+  }
+  
 }

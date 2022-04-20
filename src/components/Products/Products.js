@@ -8,9 +8,10 @@ import { Mainbar } from "../Main-bar/Main-bar";
 import { Quantity } from "../Quantity/Quantity";
 import { IoIosArrowBack } from "react-icons/io";
 
-export function Product({ addToCart }) {
+export function Product({ addToCart, totalQuantity }) {
   const { id } = useParams();
   let navigate = useNavigate();
+
   const element = products.filter((product) => product.id === id);
   const { name, category, img, img1, img2, description, price } = element[0];
 
@@ -23,7 +24,7 @@ export function Product({ addToCart }) {
 
   return (
     <div className="page">
-      <Mainbar quantity={quantity} />
+      <Mainbar totalQuantity={totalQuantity}  />
       <div className="products-page">
         <div>
           <button className="back-arrow" onClick={handleClick}>
@@ -53,9 +54,10 @@ export function Product({ addToCart }) {
           <div className="price">
             <p>£ {price}</p>
           </div>
-          <Quantity quantity={quantity} setQuantity={setQuantity} />
+          <Quantity  quantity={quantity} setQuantity={setQuantity} />
           <button
-            onClick={() => addToCart(id, category, name, img, price, quantity)}>
+            onClick={() => addToCart(id, category, name, img, price, quantity)}
+          >
             Add to cart
           </button>
         </div>

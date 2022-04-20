@@ -1,10 +1,10 @@
 import "./Card.css";
 import React, { useState } from "react";
 import { Quantity } from "../Quantity/Quantity";
-
 import { Link } from "react-router-dom";
 
 export function Card({ product, addToCart }) {
+
   const { id, category, name, img, price } = product;
   const [quantity, setQuantity] = useState(1);
 

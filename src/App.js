@@ -8,21 +8,33 @@ import { Cart } from "./components/Cart/Cart";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   function addToCart(id, category, name, img, price, quantity) {
     quantity = parseInt(quantity);
-    setCart((previous) => [
-      {
-        id: id,
-        category: category,
-        name: name,
-        img: img,
-        price: price,
-        quantity: quantity,
-      },
-      ...previous,
-    ]);
+    //if item already in the cart increase number
+    if (cart.some((product) => product.id === id)) {
+      setCart(
+        cart.map((product) => {
+          if (product.id !== id) return product;
+          return { ...product, quantity: product.quantity + quantity };
+        })
+      );
+    } else {
+      //set cart with new item
+      setCart((previous) => [
+        {
+          id: id,
+          category: category,
+          name: name,
+          img: img,
+          price: price,
+          quantity: quantity,
+        },
+        ...previous,
+      ]);
+    }
   }
-
+  //get the quantity of items in the cart 
   const totalQuantity = cart.reduce((acc, obj) => {
     return acc + obj.quantity;
   }, 0);
@@ -30,16 +42,25 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/shopping-cart" element={<Home />} />
         <Route
           path="/catalog"
-          element={<Catalog addToCart={addToCart} quantity={totalQuantity} />}
+          element={
+            <Catalog addToCart={addToCart} totalQuantity={totalQuantity} />
+          }
         />
         <Route
           path="/catalog/:id"
-          element={<Product addToCart={addToCart} />}
+          element={
+            <Product addToCart={addToCart} totalQuantity={totalQuantity} />
+          }
         />
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart cart={cart} setCart={setCart} totalQuantity={totalQuantity} />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
