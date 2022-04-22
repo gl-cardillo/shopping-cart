@@ -52,9 +52,9 @@ export function Product({ addToCart, totalQuantity }) {
         </div>
         <div className="price-buy">
           <div className="price">
-            <p>£ {price}</p>
+            <p>£ {(Math.round(price * quantity * 100) / 100).toFixed(2)}</p>
           </div>
-          <Quantity  quantity={quantity} setQuantity={setQuantity} />
+          <Quantity  quantity={quantity} setQuantity={setQuantity}  />
           <button
             onClick={() => addToCart(id, category, name, img, price, quantity)}
           >

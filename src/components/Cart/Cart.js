@@ -11,6 +11,9 @@ export function Cart({ cart, setCart, totalQuantity }) {
   //change quantity of item in the cart
   function changeQuantity(n, index) {
     let newCart = [...cart];
+    // max quantity set to 9
+    if (newCart[index].quantity === 9 && n === +1) return;
+    //if quanity is 0 remove item
     if (newCart[index].quantity === 1 && n === -1) {
       removeItem(newCart[index].id);
       return;
@@ -54,30 +57,40 @@ export function Cart({ cart, setCart, totalQuantity }) {
                   <h5>{product.name}</h5>
                 </div>
                 <div className="edit-remove">
-                <div style={{ paddingLeft: 5, paddingRight: 5 }} className="quantity-selector">
-                  <p
-                    className="plus-minus"
-                    onClick={() => changeQuantity(-1, index)}
+                  <div
+                    style={{ paddingLeft: 5, paddingRight: 5, width: 50 }}
+                    className="quantity-selector"
                   >
-                    -
-                  </p>
-                  <p style={{ fontSize: 16, paddingTop: 4, paddingBottom: 4 }}>
-                    {product.quantity}
-                  </p>
-                  <p
-                    className="plus-minus"
-                    onClick={() => changeQuantity(1, index)}
-                  >
-                    +
-                  </p>
+                    <p
+                      className="plus-minus"
+                      onClick={() => changeQuantity(-1, index)}
+                    >
+                      -
+                    </p>
+                    <p
+                      style={{ fontSize: 16, paddingTop: 4, paddingBottom: 4 }}
+                    >
+                      {product.quantity}
+                    </p>
+                    <p
+                      className="plus-minus"
+                      onClick={() => changeQuantity(1, index)}
+                    >
+                      +
+                    </p>
+                  </div>
+                  <div className="price-remove">
+                    <p className="price-cart-item">
+                      £
+                      {(
+                        Math.round(product.price * product.quantity * 100) / 100
+                      ).toFixed(2)}
+                    </p>
+                    <button onClick={() => removeItem(product.id)}>
+                      remove item
+                    </button>
+                  </div>
                 </div>
-                <div className="price-remove">
-                  <p className="price-cart-item">£{product.price}</p>
-                  <button onClick={() => removeItem(product.id)}>
-                    remove item
-                  </button>
-                </div>
-              </div>
               </div>
             ))
           ) : (
@@ -88,10 +101,12 @@ export function Cart({ cart, setCart, totalQuantity }) {
         </div>
         <div className="checkout-container">
           <div className="subtotal">
-            <p className="total-price">Subtotal: £ {totalPrice} </p>          
+            <p className="total-price">
+              Subtotal: £ {(Math.round(totalPrice * 100) / 100).toFixed(2)}
+            </p>
             <div className="number-items">
-            <p>{totalQuantity} items</p>
-          </div>
+              <p>{totalQuantity} items</p>
+            </div>
           </div>
 
           <button>Proceed</button>

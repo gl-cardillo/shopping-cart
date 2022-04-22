@@ -14,7 +14,7 @@ export function Card({ product, addToCart }) {
       <Link to={`${id}`} style={{ textDecoration: "none" }}>
         <h3>{name}</h3>
       </Link>
-      <p>£ {price}</p>
+      <p>£ {(Math.round(price * quantity * 100) / 100).toFixed(2)}</p>
       <Quantity quantity={quantity} setQuantity={setQuantity} />
       <button
         onClick={() => addToCart(id, category, name, img, price, quantity)}>

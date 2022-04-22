@@ -101,6 +101,7 @@
 .total-price {
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
+  width: 150px;
 }
 
 @media only screen and (min-width: 375px ) {
@@ -137,6 +138,7 @@
   
   .price-cart-item {
     font-size: 24px;
+    width: 100px;
    }
 
   .price-remove button {

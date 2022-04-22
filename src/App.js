@@ -15,7 +15,7 @@ function App() {
     if (cart.some((product) => product.id === id)) {
       setCart(
         cart.map((product) => {
-          if (product.id !== id) return product;
+          if (product.id !== id || (product.quantity >= 9 && quantity > 1)) return product;
           return { ...product, quantity: product.quantity + quantity };
         })
       );

@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { products } from "../../data/data";
 
 export function Mainbar({ totalQuantity }) {
-  
+
   const [active, setActive] = useState(false);
   const [search, SetSearch] = useState([]);
 
   function showSearchbar() {
     setActive((active) => !active);
   }
-
+  //create new array with vith name values that matches the sarch
   function handleSearch(e) {
     if (e.target.value === "") {
       SetSearch([]);

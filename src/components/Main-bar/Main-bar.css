@@ -16,10 +16,10 @@
 .search-result {
   overflow: hidden;
   overflow-y: auto;
-  max-height: 200px;
+  max-height: 210px;
   position: absolute;
   margin-top: 5px;
-  width: 170px;
+  width: 165px;
 }
 
 .search-result::-webkit-scrollbar {
@@ -28,7 +28,8 @@
 
 .search-result p {
   background-color: black;
-  padding: 15px 5px;
+  padding: 10px 5px;
+  height: 40px;
 }
 
 .search-result p:hover {
@@ -37,8 +38,8 @@
 
 .cart-number {
   position: absolute;
-  margin-top: 9px;
-  font-size: 14px;
+  margin-top: 10px;
+  font-size: 12px;
   width: 28px ;
   text-align: center;
   font-weight: 600;
@@ -51,6 +52,7 @@
   margin-right: 10px;
   font-size: 20px;
   width: 160px;
+  padding-left: 5px;
 }
 
 #search:focus {
@@ -67,7 +69,7 @@
   }
 
   .search-result {
-    width: 220px;
+    width: 205px;
   }
 
   #search {

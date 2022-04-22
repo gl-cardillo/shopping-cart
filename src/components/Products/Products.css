@@ -12,7 +12,7 @@
 
 .slide-container {
   width: 320px;
-  height: 250px;
+  height: 280px;
 }
 
 .slide-description {
@@ -42,13 +42,22 @@
 
 .price-buy {
   align-self: center;
-  margin: auto;
+  margin-bottom: 30px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .price {
   font-size: 35px;
   margin-bottom: 20px;
-  width: 140px;
+  width: 200px;
+  text-align: center;
+}
+
+.price p {
+  width: 200px;
   text-align: center;
 }
 
@@ -69,6 +78,11 @@
   .products-page {
     display: grid;
     grid-template-columns: 1fr 4fr 2fr;
+  }
+
+  .price-buy {
+
+    margin: auto;
   }
 }
 
