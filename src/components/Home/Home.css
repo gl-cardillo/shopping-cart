@@ -12,13 +12,12 @@
   align-items: center;
   height: 30vh;
   width: 28vw;
-  font-family: 'Montserrat', sans-serif;
+
   margin-left: 50px;
 }
 
 .message-button p {
   font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
   margin-bottom: 15px;
 }
 
@@ -35,7 +34,6 @@ h1 {
   border: 0;
   padding: 8px;
   background-color: rgb(22 21 21);
-  font-family: 'Montserrat', sans-serif;  
   cursor: pointer;
 }
 

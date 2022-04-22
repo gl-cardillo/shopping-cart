@@ -1,7 +1,11 @@
 .catalog-page {
-  font-family: 'Montserrat', sans-serif;
+
   display: flex;
   flex-direction: column;
+}
+
+.catalog-content {
+  margin: auto;
 }
 
 .sidebar ul {
@@ -13,7 +17,8 @@
   margin: 40px 0;
   padding: 0 15px;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sidebar .selected {
@@ -31,5 +36,6 @@
   .catalog-content {
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
   }
 }

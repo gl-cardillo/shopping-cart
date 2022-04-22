@@ -84,7 +84,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "controller",
     name: "Dualsense Wireless Controller",
     img: controller,
@@ -95,7 +95,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "hdCamera",
     name: "HD camera",
     img: hdCamera,
@@ -106,7 +106,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "headset",
     name: "Pulse 3D Wireless Headset",
     img: pulse3D,
@@ -117,7 +117,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "charging",
     name: "Charging Station",
     img: chargingStation,
@@ -128,7 +128,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "remote",
     name: "Media Remote",
     img: mediaRemote,
@@ -139,7 +139,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "vr2",
     name: "Play Station VR2",
     img: vr2,
@@ -150,7 +150,7 @@ export const products = [
   },
 
   {
-    category: "Accessorie",
+    category: "Accessory",
     id: "vr2Controller",
     name: "VR Sense Controller",
     img: senseController,

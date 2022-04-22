@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 
 export function Cart({ cart, setCart, totalQuantity }) {
-
   let navigate = useNavigate();
   function handleClick() {
     navigate(-1);
@@ -21,15 +20,15 @@ export function Cart({ cart, setCart, totalQuantity }) {
   }
 
   function removeItem(id) {
-
     const newCart = cart.filter((product) => product.id !== id);
     setCart(newCart);
   }
   // get the total price of the cart
-  const totalPrice = cart.map((product) => {
-    return product.price * product.quantity  
-  }).reduce((a, b) => a + b, 0);
-  console.log(totalPrice);
+  const totalPrice = cart
+    .map((product) => {
+      return product.price * product.quantity;
+    })
+    .reduce((a, b) => a + b, 0);
 
   return (
     <div className="page">
@@ -47,31 +46,55 @@ export function Cart({ cart, setCart, totalQuantity }) {
           {totalQuantity > 0 ? (
             cart.map((product, index) => (
               <div key={product.id} className="cart-item">
-                <img src={product.img} alt={product.name} />
+                <div className="image-container">
+                  <img src={product.img} alt={product.name} />
+                </div>
                 <div className="cart-info">
                   <h4>{product.category}</h4>
                   <h5>{product.name}</h5>
-                  <p>£{product.price}</p>
-                  <div style={{width: 55}} className="quantity-selector">
-                    <p className="plus-minus"  onClick={() => changeQuantity(-1, index)}>-</p>
-                    <p style={{fontSize: 16}}>{product.quantity}</p>
-                    <p className="plus-minus"  onClick={() => changeQuantity(1, index)}>+</p>
-                  </div>
+                </div>
+                <div className="edit-remove">
+                <div style={{ paddingLeft: 5, paddingRight: 5 }} className="quantity-selector">
+                  <p
+                    className="plus-minus"
+                    onClick={() => changeQuantity(-1, index)}
+                  >
+                    -
+                  </p>
+                  <p style={{ fontSize: 16, paddingTop: 4, paddingBottom: 4 }}>
+                    {product.quantity}
+                  </p>
+                  <p
+                    className="plus-minus"
+                    onClick={() => changeQuantity(1, index)}
+                  >
+                    +
+                  </p>
+                </div>
+                <div className="price-remove">
+                  <p className="price-cart-item">£{product.price}</p>
                   <button onClick={() => removeItem(product.id)}>
                     remove item
                   </button>
                 </div>
               </div>
-            )) 
-              
+              </div>
+            ))
           ) : (
             <div className="empty-basket">
-              <p>Empty :(</p></div>
+              <p>Empty :(</p>
+            </div>
           )}
         </div>
-        <div className="complete-transaction">
-        <p className="totalPrice">Subtotal: £ {totalPrice} </p>
-        <button>Proceed</button>
+        <div className="checkout-container">
+          <div className="subtotal">
+            <p className="total-price">Subtotal: £ {totalPrice} </p>          
+            <div className="number-items">
+            <p>{totalQuantity} items</p>
+          </div>
+          </div>
+
+          <button>Proceed</button>
         </div>
       </div>
     </div>

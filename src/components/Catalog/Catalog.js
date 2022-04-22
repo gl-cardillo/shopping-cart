@@ -5,11 +5,22 @@ import { Card } from "../Card/Card";
 import { products } from "../../data/data";
 
 export function Catalog({ addToCart, totalQuantity }) {
+
   const [category, setCategory] = useState(
     products.filter((product) => product.category === "Console")
+    
   );
+  
   // add left border to show in wich category is active
   const [selected, setSelected] = useState(0);
+
+  /*let search = 'p';
+
+ / if (search !== '') {
+    setCategory(products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase())));
+    console.log(category)
+ 
+  }*/
 
   //change category of product to display
   const changeCategory = (n, newPage) => {
@@ -31,7 +42,7 @@ export function Catalog({ addToCart, totalQuantity }) {
             </li>
             <li
               className={selected === 1 ? "selected" : ""}
-              onClick={() => changeCategory(1, "Accessorie")}
+              onClick={() => changeCategory(1, "Accessory")}
             >
               Accessories
             </li>

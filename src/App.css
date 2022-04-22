@@ -2,10 +2,7 @@
   margin: 0;
   padding: 0;
   color : rgb(226, 221, 221);
-}
-
-li {
-  list-style-type: none;
+  font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
 }
 
 .page {

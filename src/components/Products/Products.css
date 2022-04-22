@@ -103,17 +103,17 @@
 
   .products-page img {
     width: 600px;
-    height: 550px;
-    margin: 0 50px;
+    height: 530px;
+    margin: 0 75px;
   }
   
   .slide-container {
-    width: 700px;
-    height: 550px;
+    width: 750px;
+    height: 530px;
   }
   
   .slide-description {
-    width: 700px;
+    width: 750px;
     margin: auto;
   }
 }
