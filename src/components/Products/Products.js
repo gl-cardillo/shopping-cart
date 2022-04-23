@@ -1,14 +1,17 @@
 import "./Products.css";
+import React, { useState, useContext } from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { useParams, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
 import { products } from "../../data/data";
 import { Mainbar } from "../Main-bar/Main-bar";
 import { Quantity } from "../Quantity/Quantity";
 import { IoIosArrowBack } from "react-icons/io";
+import { CartContext } from "../../useContext/CartContext";
 
-export function Product({ addToCart, totalQuantity }) {
+export function Product() {
+  const { addToCart } = useContext(CartContext);
+
   const { id } = useParams();
   let navigate = useNavigate();
 
@@ -24,7 +27,7 @@ export function Product({ addToCart, totalQuantity }) {
 
   return (
     <div className="page">
-      <Mainbar totalQuantity={totalQuantity}  />
+      <Mainbar />
       <div className="products-page">
         <div>
           <button className="back-arrow" onClick={handleClick}>
@@ -54,7 +57,7 @@ export function Product({ addToCart, totalQuantity }) {
           <div className="price">
             <p>£ {(Math.round(price * quantity * 100) / 100).toFixed(2)}</p>
           </div>
-          <Quantity  quantity={quantity} setQuantity={setQuantity}  />
+          <Quantity quantity={quantity} setQuantity={setQuantity} />
           <button
             onClick={() => addToCart(id, category, name, img, price, quantity)}
           >

@@ -2,8 +2,12 @@ import "./Cart.css";
 import { Mainbar } from "../Main-bar/Main-bar";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import { useContext } from "react";
+import { CartContext } from "../../useContext/CartContext";
 
-export function Cart({ cart, setCart, totalQuantity }) {
+export function Cart() {
+  const { cart, setCart, totalQuantity } = useContext(CartContext);
+
   let navigate = useNavigate();
   function handleClick() {
     navigate(-1);
@@ -35,7 +39,7 @@ export function Cart({ cart, setCart, totalQuantity }) {
 
   return (
     <div className="page">
-      <Mainbar totalQuantity={totalQuantity} />
+      <Mainbar />
       <div className="cart-page">
         <h3>YOUR SHOPPING CART</h3>
       </div>
@@ -108,7 +112,6 @@ export function Cart({ cart, setCart, totalQuantity }) {
               <p>{totalQuantity} items</p>
             </div>
           </div>
-
           <button>Proceed</button>
         </div>
       </div>

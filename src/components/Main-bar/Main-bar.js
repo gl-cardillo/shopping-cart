@@ -1,13 +1,15 @@
 import "./Main-bar.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BsBag, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { products } from "../../data/data";
+import { CartContext } from "../../useContext/CartContext";
 
-export function Mainbar({ totalQuantity }) {
-
+export function Mainbar() {
   const [active, setActive] = useState(false);
   const [search, SetSearch] = useState([]);
+
+  const { totalQuantity } = useContext(CartContext);
 
   function showSearchbar() {
     setActive((active) => !active);

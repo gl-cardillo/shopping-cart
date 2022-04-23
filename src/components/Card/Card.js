@@ -1,13 +1,16 @@
 import "./Card.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Quantity } from "../Quantity/Quantity";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../useContext/CartContext";
 
-export function Card({ product, addToCart }) {
+export function Card({ product }) {
 
   const { id, category, name, img, price } = product;
   const [quantity, setQuantity] = useState(1);
 
+  const { addToCart } = useContext(CartContext);
+  
   return (
     <div className="card">
       <img src={img} alt={name} />
