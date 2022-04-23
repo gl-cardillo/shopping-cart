@@ -14,6 +14,7 @@ I used React and React Router.
 - The user can browse throw products.
 - click on product to see more pictures and description.
 - Add a specific number of the product to the cart and remove them.
+- search for a product.
 
 ## Link
 ---

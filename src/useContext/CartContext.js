@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const CartContext = React.createContext();
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function addToCart(id, category, name, img, price, quantity) {
+    if (isNaN(price)) return;
+
     quantity = parseInt(quantity);
     //if item already in the cart increase number
     if (cart.some((product) => product.id === id)) {

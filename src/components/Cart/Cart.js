@@ -1,5 +1,6 @@
 import "./Cart.css";
 import { Mainbar } from "../Main-bar/Main-bar";
+import { Footer } from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { useContext } from "react";
@@ -39,82 +40,85 @@ export function Cart() {
 
   return (
     <div className="page">
-      <Mainbar />
-      <div className="cart-page">
-        <h3>YOUR SHOPPING CART</h3>
-      </div>
-      <div className="cart-page-content">
-        <div className="go-back-section">
-          <button className="back-arrow" onClick={handleClick}>
-            <IoIosArrowBack style={{ fontSize: "30px" }} />
-          </button>
+      <div className="main">
+        <Mainbar />
+        <div className="cart-page">
+          <h3>YOUR SHOPPING CART</h3>
         </div>
-        <div className="cart-items">
-          {totalQuantity > 0 ? (
-            cart.map((product, index) => (
-              <div key={product.id} className="cart-item">
-                <div className="image-container">
-                  <img src={product.img} alt={product.name} />
-                </div>
-                <div className="cart-info">
-                  <h4>{product.category}</h4>
-                  <h5>{product.name}</h5>
-                </div>
-                <div className="edit-remove">
-                  <div
-                    style={{ paddingLeft: 5, paddingRight: 5, width: 50 }}
-                    className="quantity-selector"
-                  >
-                    <p
-                      className="plus-minus"
-                      onClick={() => changeQuantity(-1, index)}
-                    >
-                      -
-                    </p>
-                    <p
-                      style={{ fontSize: 16, paddingTop: 4, paddingBottom: 4 }}
-                    >
-                      {product.quantity}
-                    </p>
-                    <p
-                      className="plus-minus"
-                      onClick={() => changeQuantity(1, index)}
-                    >
-                      +
-                    </p>
-                  </div>
-                  <div className="price-remove">
-                    <p className="price-cart-item">
-                      £
-                      {(
-                        Math.round(product.price * product.quantity * 100) / 100
-                      ).toFixed(2)}
-                    </p>
-                    <button onClick={() => removeItem(product.id)}>
-                      remove item
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="empty-basket">
-              <p>Empty :(</p>
-            </div>
-          )}
-        </div>
-        <div className="checkout-container">
-          <div className="subtotal">
-            <p className="total-price">
-              Subtotal: £ {(Math.round(totalPrice * 100) / 100).toFixed(2)}
-            </p>
-            <div className="number-items">
-              <p>{totalQuantity} items</p>
-            </div>
+        <div className="cart-page-content">
+          <div className="go-back-section">
+            <button className="back-arrow" onClick={handleClick}>
+              <IoIosArrowBack style={{ fontSize: "30px" }} />
+            </button>
           </div>
-          <button>Proceed</button>
+          <div className="cart-items">
+            {totalQuantity > 0 ? (
+              cart.map((product, index) => (
+                <div key={product.id} className="cart-item">
+                  <div className="image-container">
+                    <img src={product.img} alt={product.name} />
+                  </div>
+                  <div className="cart-info">
+                    <h4>{product.category}</h4>
+                    <h5>{product.name}</h5>
+                  </div>
+                  <div className="edit-remove">
+                    <div
+                      style={{ paddingLeft: 5, paddingRight: 5, width: 50 }}
+                      className="quantity-selector"
+                    >
+                      <p
+                        className="plus-minus"
+                        onClick={() => changeQuantity(-1, index)}
+                      >
+                        -
+                      </p>
+                      <p
+                        style={{ fontSize: 16, paddingTop: 4, paddingBottom: 4 }}
+                      >
+                        {product.quantity}
+                      </p>
+                      <p
+                        className="plus-minus"
+                        onClick={() => changeQuantity(1, index)}
+                      >
+                        +
+                      </p>
+                    </div>
+                    <div className="price-remove">
+                      <p className="price-cart-item">
+                        £
+                        {(
+                          Math.round(product.price * product.quantity * 100) / 100
+                        ).toFixed(2)}
+                      </p>
+                      <button onClick={() => removeItem(product.id)}>
+                        remove item
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="empty-basket">
+                <p>Empty :(</p>
+              </div>
+            )}
+          </div>
+          <div className="checkout-container">
+            <div className="subtotal">
+              <p className="total-price">
+                Subtotal: £ {(Math.round(totalPrice * 100) / 100).toFixed(2)}
+              </p>
+              <div className="number-items">
+                <p>{totalQuantity} items</p>
+              </div>
+            </div>
+            <button>Proceed</button>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
