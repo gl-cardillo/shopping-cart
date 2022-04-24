@@ -27,9 +27,11 @@
 }
 
 .search-result p {
-  background-color: black;
+  background-color: #dddddd;
   padding: 10px 5px;
   height: 40px;
+  color: black;
+  font-weight: bold;
 }
 
 .search-result p:hover {
